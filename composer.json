@@ -1,0 +1,15 @@
+{
+    "name": "bananovs/tracker",
+    "description": "simple tracker dimension",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bananovs\\Tracker\\": "src/"
+        }
+    }
+}
