@@ -20,6 +20,12 @@ class Tracker
         $this->access_token = $access_token;
     }
 
+    public function setDatabase($value)
+    {
+        $this->params['database'] = $value;
+
+        return $this;
+    }
 
     public function setProgramId($id)
     {
@@ -70,44 +76,7 @@ class Tracker
         return $this;
     }
 
-
-    public function setData1($value)
-    {
-        $this->setData(1, $value);
-
-        return $this;
-    }
-
-    public function setData2($value)
-    {
-        $this->setData(2, $value);
-
-        return $this;
-    }
-
-    public function setData3($value)
-    {
-        $this->setData(3, $value);
-
-        return $this;
-    }
-
-    public function setData4($value)
-    {
-        $this->setData(4, $value);
-
-        return $this;
-    }
-
-    public function setData5($value)
-    {
-        $this->setData(5, $value);
-
-        return $this;
-    }
-
-
-    private function setData($index, $value)
+    public function setData($index, $value)
     {
         $this->params["d$index"] = $value;
     }
@@ -127,7 +96,7 @@ class Tracker
     public function send() 
     {
         try {
-            
+
             $query = $this->getQuery();
             $url = $this->endpoint;
             $ch = curl_init();
@@ -137,6 +106,7 @@ class Tracker
             // curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Cache-Control: no-cache','Content-type: application/json'));
             curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 1);
             $data = curl_exec($ch);
             curl_close($ch);
             return $data;
