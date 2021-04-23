@@ -1,4 +1,4 @@
-## Simple traker for simple analytics
+## Simple tracker for simple analytics
 
 simple tracker dimension, try
 
