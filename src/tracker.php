@@ -127,6 +127,7 @@ class Tracker
     public function send() 
     {
         try {
+            
             $query = $this->getQuery();
             $url = $this->endpoint;
             $ch = curl_init();
@@ -139,8 +140,11 @@ class Tracker
             $data = curl_exec($ch);
             curl_close($ch);
             return $data;
+
         } catch (\Throwable $th) {
+
             return $th->getMessage();
+
         }
         
     }
