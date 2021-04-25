@@ -76,6 +76,13 @@ class Tracker
         return $this;
     }
 
+    public function setTruncate($value)
+    {
+        $this->params['truncate'] = (bool) $value;
+
+        return $this;
+    }
+
     public function setData($index, $value)
     {
         $this->params["d$index"] = $value;
