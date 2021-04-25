@@ -76,9 +76,9 @@ class Tracker
         return $this;
     }
 
-    public function setTruncate($value)
+    public function truncate()
     {
-        $this->params['truncate'] = (bool) $value;
+        $this->params['truncate'] = true;
 
         return $this;
     }
